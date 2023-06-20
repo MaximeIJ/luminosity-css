@@ -1,10 +1,10 @@
 # 💡 luminosity.css
 
 <p align="center">
-  <img src="https://github.com/MaximeIJ/luminosity-css/assets/5600516/9f024670-3959-48a7-8c63-55f6971a2dde" height=250 align="center" alt="High contrast mini demo of luminosity.css" />
+  <img src="https://github.com/MaximeIJ/luminosity-css/assets/5600516/9f024670-3959-48a7-8c63-55f6971a2dde" height=330 align="center" alt="High contrast mini demo of luminosity.css" />
 </p>
 
-This repository provides two themable and customizable CSS classes that can add dynamic lighting to your web page. Try out the [demo](index.html)!
+This repository provides two themable and customizable CSS classes that can add dynamic lighting to your web page. Try out the [demo](https://maximeij.dev/luminosity-css)!
 
 1. `light-effect` is applied to any element you want casting a shadow. It will use css variables you define to calculate the proper directly and size for the shadow given your element's position relative to the light source.
 2. `light-source` is applied to the container and will add a gradient based layer to lighten content close to the source and dark content that is further. Note it's not needed for `light-effect` to work and serves to double down on the luminosity effect.
