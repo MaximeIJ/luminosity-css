@@ -38,5 +38,5 @@ You can control the position of the ambient light source as well as attributes t
   - `--lc-light-x` and `--lc-light-y` can be used to set the 2d coordinates of the center of the light in `%`. These values can be negative or otherwise outside the bounds of the container to give the light a faraway effect.
   - `--lc-light-z` simulates the height of the light source and indirectly the spread of the beam and blurriness of element shadows. It's best kept positive.
   - `--lc-light-m` is a measure of the extent of the light source's filters (both light and dark). It affects the range of the effect in the `.light-source` gradient but not the shadows of the elements.
-- `--lc-x` and `--lc-y` **must** be used on elements for directional shadows to work. They can be set at runtime by javascript for elements that are naturally positioned.
+- `--lc-x` and `--lc-y` **must** be used on elements for directional shadows to work and should be expressed in % and correspond to the center of the element. They can be set at runtime by javascript for elements that are naturally positioned.
 - `--lc-shadow-sensitivity` determines the number of `px` the shadow is offset by for each `%` distance the element is from the light source. By default it's set at `0.05px`.

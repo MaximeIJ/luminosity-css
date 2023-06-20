@@ -6,7 +6,7 @@
 */
 .light-effect {
   /* Variables to pass in */
-  /* Element position (Required) */
+  /* Element position (Required) in % */
   --x: var(--lc-x, 0);
   --y: var(--lc-y, 0);
 
