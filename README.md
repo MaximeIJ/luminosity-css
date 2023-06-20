@@ -1,7 +1,7 @@
 # 💡 luminosity.css
 
 <p align="center">
-  <img src="https://github.com/MaximeIJ/luminosity-css/assets/5600516/9f024670-3959-48a7-8c63-55f6971a2dde" height=330 align="center" alt="High contrast mini demo of luminosity.css" />
+  <img src="https://github.com/MaximeIJ/luminosity-css/assets/5600516/a9aa4364-f4b5-4d75-a44e-3d8b58d83d97" height=330 align="center" alt="High contrast mini demo of luminosity.css" />
 </p>
 
 This repository provides two themable and customizable CSS classes that can add dynamic lighting to your web page. Try out the [demo](https://maximeij.dev/luminosity-css)!
