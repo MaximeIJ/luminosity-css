@@ -1,0 +1,89 @@
+/* 
+  Drops a box-shadow placed relative to the light position to create a luminosity effect.
+  Will inherite the light position from the closest parent with the .light-source class 
+  but can also be used standalone with custom light source position.
+  Use on individual elements. 
+*/
+.light-effect {
+  /* Variables to pass in */
+  /* Element position (Required) */
+  --x: var(--lc-x, 0);
+  --y: var(--lc-y, 0);
+
+  /* Hide shadows behind other elements */
+  transform-style: preserve-3d;    
+}
+.light-effect::before {
+  /* Cover element */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius, 0);
+  
+  /* Light position (internal, do not pass in) */
+  --sx: calc((var(--x) - var(--light-x)) * var(--shadow-sensitivity));
+  --sy: calc((var(--y) - var(--light-y)) * var(--shadow-sensitivity));
+  /* pseudo diagonal */
+  --sd: calc(
+    var(--shadow-sensitivity) + 
+    max(
+      0.01px * (50 - (var(--x) - var(--light-x) + var(--y) - var(--light-y) + var(--light-z))), 
+      0px));
+
+  box-shadow: var(--sx) var(--sy) var(--sd) calc(0.9 * var(--sd)) var(--shadow-color);
+  /* Hide shadows behind other elements */
+  transform: translateZ(-1px);
+  /* Optimizations */
+  pointer-events: none;
+  will-change: box-shadow;
+}
+
+/* 
+  Applies a filter using a radial gradient.
+  Use on the container of your lit scene. 
+*/
+.light-source {  
+  /* Variables to pass in */
+  /* Light source (Required) */
+  --light-on: var(--lc-light-on, #fff3);
+  --light-off: var(--lc-light-off, #0004);
+  --light-x: var(--lc-light-x, 50);
+  --light-y: var(--lc-light-y, 0);
+  --light-z: var(--lc-light-z, 10);
+  /* measure of reach: at max 50, light-on and light-off meet directly with no transparent between. Value can be negative */
+  --light-m: var(--lc-light-m, 0);
+  /* Shadow properties (Required) */
+  --shadow-color: var(--lc-shadow-color, #0005);
+  --shadow-sensitivity: var(--lc-shadow-sensitivity, 0.05px);
+
+  /* Hide shadows behind other elements */
+  transform-style: preserve-3d;    
+}
+.light-source::before {  
+  /* Cover element */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius, 0);
+  
+  /* Light position (internal, do not pass in) */
+  --light-on-limit: calc(var(--light-m) * 0.75% - var(--light-z) * 0.25%);
+  --light-off-limit: calc(100% - var(--light-on-limit));
+
+  /* Ambient light source filter */
+  background: radial-gradient(
+    circle at calc(var(--light-x) * 1%) calc(var(--light-y) * 1%), 
+    var(--light-on) var(--light-on-limit), 
+    transparent 50%, 
+    var(--light-off) var(--light-off-limit));
+  z-index: 1;
+
+  /* Optimizations */
+  pointer-events: none;
+}
